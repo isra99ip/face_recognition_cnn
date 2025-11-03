@@ -1,0 +1,21 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FaceID en el Aula</title>
+<link rel="stylesheet" href="https://unpkg.com/mvp.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header><h1>FaceID en el Aula</h1><p>CNN + TFLite + Android</p></header>
+<main>
+<section><h2>Problema</h2><p>Identificación en tiempo real de integrantes del equipo con latencia &lt; 500 ms.</p></section>
+<section><h2>Dataset</h2><p>5 clases × ≥100 imágenes por clase. Variación de pose, iluminación y expresión.</p></section>
+<section><h2>Arquitectura</h2><p>MobileNetV2 → Fine‑tuning → TFLite (float16/INT8) → CameraX.</p></section>
+<section><h2>Métricas</h2><canvas id="chart"></canvas></section>
+<section><h2>Demo</h2><p>Inserta un video corto <code>docs/demo.mp4</code> con la app en vivo.</p></section>
+</main>
+<script>
+const ctx = document.getElementById('chart');
+new Chart(ctx, {type:'bar', data:{labels:['PersonaA','PersonaB','PersonaC','PersonaD','PersonaE'],
+datasets:[{label:'F1-score', data:[0.95,0.92,0.90,0.93,0.91]}]}});
+</script>
+</body></html>
